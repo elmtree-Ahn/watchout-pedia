@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes } from 'react-router-dom';
+import MainPage from './pages/MainPage';
+import Tvpage from './pages/Tvpage';
+import TvDetail from './pages/TvDetail';
+import MovieDetail from './pages/MovieDetail';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage/>}/>
+        <Route path="/tv" element={<Tvpage/>}/>
+        <Route path="/movie/:id" element={<MovieDetail/>}/>
+        <Route path="/tv/:id" element={<TvDetail/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
